@@ -67,7 +67,7 @@ trait CategoryLabelGenerators extends Imports {
     final def toPeer(generator: CategoryLabelGenerator): JCategoryLabelGenerator = new JCategoryLabelGenerator {
       override final def generateColumnLabel(dataset: CategoryDataset, category: Int): String = ""
       override final def generateLabel(dataset: CategoryDataset, series: Int, category: Int): String =
-        generator(dataset, series, category)
+        generator(dataset, dataset.getRowKey(series), dataset.getColumnKey(category))
       override final def generateRowLabel(dataset: CategoryDataset, series: Int): String = ""
     }
 
